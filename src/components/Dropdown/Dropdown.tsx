@@ -2,7 +2,14 @@ import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { DropdownType } from "../../types/Dropdown/Dropdown";
 import { useState } from "react";
 
-const Dropdown = ({ title, data, onSelect }: DropdownType) => {
+const Dropdown = ({
+  title,
+  data,
+  onSelect,
+  selectStyle,
+  optionStyle,
+  iconStyle,
+}: DropdownType) => {
   const [isToggleSelect, setIsToggleSelect] = useState(false);
 
   const handleSelectOption = (option: string) => {
@@ -15,13 +22,21 @@ const Dropdown = ({ title, data, onSelect }: DropdownType) => {
       <div
         onClick={() => setIsToggleSelect((prev) => !prev)}
         className=" cursor-pointer w-[350px] rounded-lg h-[44px] border-[1px] bg-white flex justify-between items-center border-[#96A397] px-4 py-3"
+        style={selectStyle}
       >
         <p>{title || "Select an option"}</p>
-        {isToggleSelect ? <ExpandLess /> : <ExpandMore />}
+        {isToggleSelect ? (
+          <ExpandLess style={iconStyle} />
+        ) : (
+          <ExpandMore style={iconStyle} />
+        )}
       </div>
 
       {isToggleSelect && (
-        <div className="p-2 rounded-lg absolute bg-white shadow w-[350px] mt-2">
+        <div
+          className="p-2 rounded-lg absolute bg-white shadow w-[350px] mt-2"
+          style={optionStyle}
+        >
           {data?.map((item, index) => {
             return (
               <div
