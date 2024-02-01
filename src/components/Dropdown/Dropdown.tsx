@@ -1,5 +1,5 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { DropdownType } from "../../types/Dropdown/Dropdown";
+import { Data, DropdownType } from "../../types/Dropdown/Dropdown";
 import { useState } from "react";
 
 const Dropdown = ({
@@ -12,7 +12,7 @@ const Dropdown = ({
 }: DropdownType) => {
   const [isToggleSelect, setIsToggleSelect] = useState(false);
 
-  const handleSelectOption = (option: string) => {
+  const handleSelectOption = (option: Data) => {
     setIsToggleSelect(false);
     onSelect(option);
   };
@@ -44,7 +44,7 @@ const Dropdown = ({
                 key={index}
                 onClick={() => handleSelectOption(item)}
               >
-                <p>{item}</p>
+                <p>{item?.value}</p>
               </div>
             );
           })}
