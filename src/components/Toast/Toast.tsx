@@ -5,9 +5,11 @@ type ToastType = {
   position?: string;
   time?: number;
   type?: string;
+  children?: React.ReactNode;
+  showIcon?: boolean;
 };
 
-const Toast = ({ position, time, type }: ToastType) => {
+const Toast = ({ position, time, type, children, showIcon }: ToastType) => {
   const [isClosed, setIsClosed] = useState(false);
 
   useEffect(() => {
@@ -50,13 +52,18 @@ const Toast = ({ position, time, type }: ToastType) => {
               : "right-1/2 top-0  mt-2"
           }`}
         >
-          <div className="flex justify-between items-center gap-5">
-            <p>I am a toast</p>
-            <Cancel
-              onClick={() => setIsClosed(true)}
-              className="cursor-pointer"
-              style={{ fontSize: "16px" }}
-            />
+          <div>
+            <div className="flex justify-between items-center gap-5">
+              <p>I am a toast</p>
+              {showIcon && (
+                <Cancel
+                  onClick={() => setIsClosed(true)}
+                  className="cursor-pointer"
+                  style={{ fontSize: "16px" }}
+                />
+              )}
+            </div>
+            <div>{children}</div>
           </div>
         </div>
       )}

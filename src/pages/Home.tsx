@@ -7,7 +7,7 @@ const Home = () => {
     <div className="m-4">
       <DropDownPage />
       <ButtonPage />
-      <Toast position="top-right" time={20000} type="success" />
+      <Toast position="top-right" time={20000} type="success" showIcon={true} />
     </div>
   );
 };
