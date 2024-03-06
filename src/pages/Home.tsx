@@ -36,7 +36,12 @@ const Home = () => {
         Show Toast
       </Button>
       <div className="mt-4">
-        <Tab onSelectedTab={handleSelectedTab} data={data}>
+        <Tab
+          tabText=""
+          tabContainer=""
+          onSelectedTab={handleSelectedTab}
+          data={data}
+        >
           <div>Yes one</div>
           <div>Yes two</div>
           <div>Yes three</div>

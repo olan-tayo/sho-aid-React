@@ -9,9 +9,17 @@ type TabType = {
   children: React.ReactNode[];
   onSelectedTab: (tab: SelectedTabType) => void;
   data: SelectedTabType[];
+  tabContainer?: string;
+  tabText?: string;
 };
 
-const Tab = ({ children, onSelectedTab, data }: TabType) => {
+const Tab = ({
+  children,
+  onSelectedTab,
+  data,
+  tabContainer,
+  tabText,
+}: TabType) => {
   const [selectedTab, setSelectedTab] = useState<SelectedTabType>({
     key: null,
     value: "",
@@ -28,9 +36,12 @@ const Tab = ({ children, onSelectedTab, data }: TabType) => {
         {data?.map((tab, index) => {
           return (
             <div key={index}>
-              <div onClick={() => handleSelectTab(tab)}>
+              <div
+                className={`${tabContainer}`}
+                onClick={() => handleSelectTab(tab)}
+              >
                 {" "}
-                <p className="cursor-pointer">{tab?.value}</p>
+                <p className={`cursor-pointer ${tabText}`}>{tab?.value}</p>
               </div>
             </div>
           );
