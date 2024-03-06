@@ -1,7 +1,7 @@
 import { Cancel } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 
-type ToastType = {
+export type ToastType = {
   position?: string;
   time?: number;
   type?: string;
@@ -20,6 +20,7 @@ const Toast = ({ position, time, type, children, showIcon }: ToastType) => {
       time ? time : 3000
     );
   }, [time]);
+
   return (
     <div>
       {isClosed ? null : (

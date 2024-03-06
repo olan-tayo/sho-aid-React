@@ -1,6 +1,6 @@
 export type ButtonType = {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => null;
+  onClick?: () => void;
   disabled?: boolean;
 };
